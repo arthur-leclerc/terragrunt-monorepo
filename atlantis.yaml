@@ -1,0 +1,21 @@
+automerge: false
+parallel_apply: true
+parallel_plan: true
+projects:
+- autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../terraform/root-modules/root-module-1/*.tf*
+  dir: service-1
+  workflow: terragrunt
+- autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+    - ../../terraform/root-modules/root-module-2/*.tf*
+  dir: service-2
+  workflow: terragrunt
+version: 3
